@@ -1,4 +1,4 @@
-package br.edu.ifrs.app;
+package br.edu.ifrs.trabalho.app;
 
 public class App {
 
