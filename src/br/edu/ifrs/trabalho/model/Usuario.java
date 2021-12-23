@@ -4,13 +4,19 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "usuario")
 @Entity
+
+@NamedQueries({ @NamedQuery(name = Usuario.USUARIO_LOGIN, query = "SELECT u FROM Usuario AS u WHERE b.login = :login"), })
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	public static final String USUARIO_LOGIN = "usuario.login";
 
 	@Id
 	@Column(name = "id", nullable = false)
