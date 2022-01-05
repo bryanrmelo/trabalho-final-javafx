@@ -1,5 +1,8 @@
 package br.edu.ifrs.trabalho.app;
 
+import br.edu.ifrs.trabalho.controller.Controller;
+import br.edu.ifrs.trabalho.model.Jogo;
+import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,13 +24,17 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		openNewWindow(MAIN, "Main", 700, 600);
+		openNewWindow(MAIN, "Main", 700, 600, new Controller());
 	}
 
-	public static void openNewWindow(String path, String title, int w, int h) {
+	public static void openNewWindow(String path, String title, int w, int h, Controller main_controller) {
 		Stage stage = new Stage();
+		Parent root;
 		try {
-			Parent root = FXMLLoader.load(App.class.getClassLoader().getResource(path));
+			FXMLLoader loader = new FXMLLoader(main_controller.getClass().getClassLoader().getResource(path));
+			root = loader.load();
+			Controller controller = loader.getController();
+			controller.setMainController(main_controller);
 			Scene scene = new Scene(root, w, h);
 			stage.setScene(scene);
 			stage.show();
