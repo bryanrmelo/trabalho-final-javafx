@@ -7,25 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.ExportController">
    <children>
       <Label contentDisplay="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="45.0" prefWidth="331.0" text="Exportar como:">
          <font>
             <Font name="Yu Gothic Regular" size="24.0" />
          </font>
       </Label>
-      <RadioButton layoutX="130.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="75.0" text="Tabela">
+      <RadioButton fx:id="radio_table" layoutX="130.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="75.0" text="Tabela">
          <font>
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="217.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="66.0" text="Gráfico">
+      <RadioButton fx:id="radio_graph"  layoutX="217.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="66.0" text="Gráfico">
          <font>
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="24.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="Completo">
+      <RadioButton fx:id="radio_complete"  layoutX="24.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="Completo">
          <font>
             <Font size="13.0" />
          </font>
@@ -35,7 +34,7 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="205.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Exportar">
+      <Button onAction="#export" layoutX="208.0" layoutY="205.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Exportar">
          <font>
             <Font size="13.0" />
          </font>
