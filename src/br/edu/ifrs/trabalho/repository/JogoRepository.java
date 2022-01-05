@@ -10,7 +10,7 @@ public class JogoRepository {
 
     public static void adiciona(Jogo jogo) {
         EntityManagerFactory entityManagerFactory
-                = Persistence.createEntityManagerFactory("Jogo-PU");
+                = Persistence.createEntityManagerFactory("games");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(jogo);
@@ -22,7 +22,7 @@ public class JogoRepository {
 
     public static void remove(Jogo jogo) {
         EntityManagerFactory entityManagerFactory
-                = Persistence.createEntityManagerFactory("Jogo-PU");
+                = Persistence.createEntityManagerFactory("games");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();

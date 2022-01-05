@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 @Table(name = "jogo")
 @Entity
+
 public class Jogo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
