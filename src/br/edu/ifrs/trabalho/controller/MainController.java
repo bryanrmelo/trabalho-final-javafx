@@ -17,6 +17,6 @@ public class MainController {
     }
 
     public void showExport() {
-        App.openNewWindow(App.EXPORT, "Adc", 600, 500);
+        App.openNewWindow(App.EXPORT, "Adc", 314, 178);
     }
 }

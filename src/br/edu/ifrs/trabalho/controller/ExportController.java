@@ -1,8 +1,6 @@
 package br.edu.ifrs.trabalho.controller;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -12,8 +10,10 @@ import javafx.scene.control.ToggleGroup;
 //import org.apache.poi.xssf.usermodel.XSSFSheet;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class ExportController implements Initializable {
     @FXML
@@ -26,18 +26,24 @@ public class ExportController implements Initializable {
         radio_complete.setSelected(true);
         radio_graph.setToggleGroup(group);
         radio_table.setToggleGroup(group);
-
     }
 
-    public void export(){
-        if (radio_table.isSelected()){
-
+    public void export()throws IOException {
+        System.out.println(radio_complete.isSelected());
+        if(radio_complete.isSelected()){
+            gera_tabela();
+            gera_grafico();
+        }
+        else if (radio_table.isSelected()){
+            gera_tabela();
+        }else if(radio_graph.isSelected()){
+            gera_grafico();
         }
     }
 
-
-//    public static void gera_tabela(){}
-//    public static void Planilha(ArrayList<Turma>  turmas)throws IOException{
+    public static void gera_grafico()throws IOException { }
+    public static void gera_tabela()throws IOException {
+//    PUXAR TODOS OS  JOGOS PARA UM ARRAYLIST
 //        XSSFWorkbook workbook = new XSSFWorkbook();
 //        for(Jogo j : jogos) {
 //            XSSFSheet sheet = workbook.createSheet(t.getCurso() + " - " + t.getNome());
@@ -83,5 +89,5 @@ public class ExportController implements Initializable {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-//    }
+    }
 }
