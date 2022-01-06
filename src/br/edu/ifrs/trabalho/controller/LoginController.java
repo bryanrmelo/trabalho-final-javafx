@@ -1,5 +1,6 @@
 package br.edu.ifrs.trabalho.controller;
 
+import br.edu.ifrs.trabalho.app.App;
 import br.edu.ifrs.trabalho.exceptions.SenhaInvalidaException;
 import br.edu.ifrs.trabalho.exceptions.UsuarioNaoEncontrado;
 import br.edu.ifrs.trabalho.model.Usuario;
@@ -22,7 +23,9 @@ public class LoginController extends Controller {
 		Usuario usuario = new Usuario(login.getText(), senha.getText());
 		try {
 			if (UsuarioRepository.logar(usuario)) {
-
+				App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
+			} else {
+				AlertUtils.mostrarAlert("Usuário ou senha erradas", AlertType.INFORMATION);
 			}
 
 		} catch (SenhaInvalidaException e) {
