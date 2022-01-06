@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "usuario")
 @Entity
 
-@NamedQueries({ @NamedQuery(name = Usuario.USUARIO_LOGIN, query = "SELECT u FROM Usuario AS u WHERE login = :login"), })
+@NamedQueries({ @NamedQuery(name = Usuario.USUARIO_LOGIN, query = "SELECT u FROM Usuario AS u WHERE u.login = :login"), })
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;

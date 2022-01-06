@@ -4,14 +4,18 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name = "jogo")
+@NamedQueries({ @NamedQuery(name = Jogo.POR_ID, query = "SELECT j FROM Jogo j WHERE j.id = :id") })
 @Entity
-
 public class Jogo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	public static final String POR_ID = "jogo.id";
 
 	@Id
 	@Column(name = "id", nullable = false)
