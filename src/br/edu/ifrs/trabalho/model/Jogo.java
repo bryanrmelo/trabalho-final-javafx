@@ -9,12 +9,15 @@ import javax.persistence.Table;
 
 @Table(name = "jogo")
 @NamedQuery(name = Jogo.POR_ID, query = "SELECT j FROM Jogo j WHERE j.id = :id")
+@NamedQuery(name = Jogo.TODOS, query = "SELECT j FROM Jogo j")
 @Entity
 public class Jogo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	public static final String POR_ID = "jogo.id";
+
+	public static final String TODOS = "jogo.todos";
 
 	@Id
 	@Column(name = "id", nullable = false)

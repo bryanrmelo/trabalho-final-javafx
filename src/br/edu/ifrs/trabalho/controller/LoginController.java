@@ -9,6 +9,7 @@ import br.edu.ifrs.trabalho.utils.AlertUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 //Bryan Melo
@@ -16,7 +17,10 @@ import javafx.scene.control.TextField;
 public class LoginController extends Controller {
 
 	@FXML
-	private TextField login, senha;
+	private TextField login;
+
+	@FXML
+	private PasswordField senha;
 
 	@FXML
 	void botaoEntrarHandler(ActionEvent event) {

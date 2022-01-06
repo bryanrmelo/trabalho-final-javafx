@@ -40,6 +40,7 @@ public class App extends Application {
 			stage.setScene(scene);
 			stage.show();
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.err.println("Deu ruim!"); // TODO: Criar janela de erro
 		}
 

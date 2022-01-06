@@ -4,9 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ifrs.trabalho.app.App;
 import br.edu.ifrs.trabalho.model.Jogo;
+import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +17,7 @@ import javafx.scene.control.TableView;
 //Rafael Graunke
 public class MainController extends Controller implements Initializable {
 
-	private final ObservableList<Jogo> jogos = FXCollections.observableArrayList();
+	private final ObservableList<Jogo> jogos = JogoRepository.buscarTodos();
 
 	@FXML
 	TableView<Jogo> table_view;

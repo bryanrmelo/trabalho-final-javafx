@@ -3,6 +3,7 @@ package br.edu.ifrs.trabalho.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ifrs.trabalho.model.Jogo;
+import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,6 +36,8 @@ public class AdcController extends Controller implements Initializable {
 		jogo.setDesenvolvedor(developer_field.getText());
 		jogo.setCategoria(category_choice.getSelectionModel().getSelectedItem());
 		jogo.setAno(Integer.parseInt(year_field.getText()));
+		JogoRepository.adiciona(jogo);
+
 		((MainController) mainController).getJogos().add(jogo);
 	}
 
