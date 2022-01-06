@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
+	public static final String LOGIN = "resources/views/LoginPane.fxml";
 	public static final String MAIN = "resources/views/MainPane.fxml";
 	public static final String EXPORT = "resources/views/ExportPane.fxml";
 	public static final String ADC = "resources/views/AdcPane.fxml";
@@ -21,7 +22,7 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		openNewWindow(MAIN, "Main", 700, 600, new Controller());
+		openNewWindow(LOGIN, "Login", 700, 600, new Controller());
 	}
 
 	public static void openNewWindow(String path, String title, int w, int h, Controller mainController) {

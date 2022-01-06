@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 //Rafael Graunke
 public class AdcController extends Controller implements Initializable {
-
 	@FXML
 	TextField name_field, developer_field, year_field;
 
