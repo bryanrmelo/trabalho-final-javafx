@@ -3,6 +3,8 @@ package br.edu.ifrs.trabalho.model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,6 +23,7 @@ public class Jogo implements Serializable {
 
 	@Id
 	@Column(name = "id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(name = "nome", nullable = false)
@@ -34,6 +37,14 @@ public class Jogo implements Serializable {
 
 	@Column(name = "ano", nullable = false)
 	private int ano;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -65,5 +76,10 @@ public class Jogo implements Serializable {
 
 	public void setAno(int ano) {
 		this.ano = ano;
+	}
+
+	@Override
+	public String toString() {
+		return "Jogo [id=" + id + ", nome=" + nome + ", desenvolvedor=" + desenvolvedor + ", categoria=" + categoria + ", ano=" + ano + "]";
 	}
 }
