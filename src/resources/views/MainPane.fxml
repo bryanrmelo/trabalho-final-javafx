@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.MainController">
+   <children>
+      <Pane layoutX="51.0" layoutY="90.0" prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <TableView fx:id="table_view" prefHeight="364.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="name_col" prefWidth="185.0" text="Nome" />
+                  <TableColumn fx:id="dev_col" minWidth="0.0" prefWidth="146.0" text="Desenvolvedora" />
+                <TableColumn fx:id="cat_col" minWidth="9.0" prefWidth="139.0" text="Categoria" />
+                  <TableColumn fx:id="year_col" maxWidth="200.0" minWidth="0.0" prefWidth="128.0" text="Ano" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="22.0" prefHeight="45.0" prefWidth="309.0" text="Games DB">
+         <font>
+            <Font name="Yu Gothic Regular" size="50.0" />
+         </font>
+      </Label>
+      <Button fx:id="add_btn" layoutX="51.0" layoutY="495.0" mnemonicParsing="false" onAction="#showAdc" prefHeight="32.0" prefWidth="94.0" text="Adicionar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="export_btn" layoutX="373.0" layoutY="495.0" mnemonicParsing="false" onAction="#showExport" prefHeight="35.0" prefWidth="94.0" text="Exportar ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="remove_btn" layoutX="210.0" layoutY="495.0" mnemonicParsing="false" onAction="#removeButtonHandler" prefHeight="32.0" prefWidth="94.0" text="Remover">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="stats_btn" layoutX="517.0" layoutY="495.0" mnemonicParsing="false" onAction="#showStats" prefHeight="35.0" prefWidth="134.0" text="Ver Estatísticas ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

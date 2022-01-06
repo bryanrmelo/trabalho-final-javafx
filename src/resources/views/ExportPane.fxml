@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.ExportController">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="24.0" layoutY="14.0" prefHeight="45.0" prefWidth="331.0" text="Exportar como:">
+         <font>
+            <Font name="Yu Gothic Regular" size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radio_table" layoutX="124.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="75.0" text="Excel">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radio_graph" layoutX="209.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="Imagem">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radio_complete" layoutX="32.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="PDF">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </RadioButton>
+      <Button layoutX="28.0" layoutY="135.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Voltar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="208.0" layoutY="135.0" mnemonicParsing="false" onAction="#export" prefHeight="17.0" prefWidth="75.0" text="Exportar">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

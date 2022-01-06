@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <PieChart layoutX="50.0" layoutY="76.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="14.0" prefHeight="45.0" prefWidth="309.0" text="Categorias">
+         <font>
+            <Font name="Yu Gothic Regular" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
