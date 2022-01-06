@@ -9,6 +9,7 @@ import br.edu.ifrs.trabalho.utils.AlertUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -23,10 +24,14 @@ public class LoginController extends Controller {
 	private PasswordField senha;
 
 	@FXML
+	private Button entrarButton;
+
+	@FXML
 	void botaoEntrarHandler(ActionEvent event) {
 		Usuario usuario = new Usuario(login.getText(), senha.getText());
 		try {
 			if (UsuarioRepository.logar(usuario)) {
+				App.fecharStage(entrarButton);
 				App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
 			} else {
 				AlertUtils.mostrarAlert("Usuário ou senha erradas", AlertType.INFORMATION);

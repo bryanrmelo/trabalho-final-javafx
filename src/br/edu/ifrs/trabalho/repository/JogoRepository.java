@@ -1,12 +1,11 @@
 package br.edu.ifrs.trabalho.repository;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import br.edu.ifrs.trabalho.model.Jogo;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 public class JogoRepository {
 
@@ -21,12 +20,13 @@ public class JogoRepository {
 		entityManagerFactory.close();
 	}
 
-	public static void remove(Jogo jogo) {
+	public void remove(Jogo jogo) {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("games");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		entityManager.getTransaction().begin();
-		entityManager.remove(jogo);
+		entityManager.remove(entityManager.getReference(Jogo.class, jogo.getId()));
+		// entityManager.remove(jogo);
 		entityManager.getTransaction().commit();
 
 		entityManager.close();
@@ -34,13 +34,13 @@ public class JogoRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static ObservableList<Jogo> buscarTodos() {
+	public List<Jogo> buscarTodos() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("games");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-		Query q = entityManager.createNamedQuery(Jogo.TODOS);
+		Query q = entityManager.createNamedQuery(Jogo.TODOS, Jogo.class);
 
-		ObservableList<Jogo> jogos = FXCollections.observableArrayList(q.getResultList());
+		List<Jogo> jogos = q.getResultList();
 
 		entityManager.close();
 		entityManagerFactory.close();

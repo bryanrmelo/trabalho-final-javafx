@@ -8,16 +8,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="700.0" maxWidth="600.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.LoginController">
    <children>
       <Pane prefHeight="600.0" prefWidth="700.0">
          <children>
-            <Button layoutX="285.0" layoutY="460.0" mnemonicParsing="false" onAction="#botaoEntrarHandler" prefHeight="25.0" prefWidth="131.0" text="Entrar" />
-            <TextField fx:id="login" layoutX="276.0" layoutY="202.0" />
-            <Label layoutX="330.0" layoutY="169.0" text="Usuário" />
-            <Label layoutX="334.0" layoutY="259.0" text="Senha" />
-            <PasswordField fx:id="senha" layoutX="276.0" layoutY="300.0" />
+            <Button fx:id="entrarButton" layoutX="285.0" layoutY="421.0" mnemonicParsing="false" onAction="#botaoEntrarHandler" prefHeight="25.0" prefWidth="131.0" text="Entrar">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
+            <TextField fx:id="login" layoutX="250.0" layoutY="203.0" prefHeight="30.0" prefWidth="200.0" />
+            <Label layoutX="316.0" layoutY="157.0" text="Usuário">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label layoutX="323.0" layoutY="262.0" text="Senha">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <PasswordField fx:id="senha" layoutX="250.0" layoutY="300.0" prefHeight="30.0" prefWidth="200.0" />
          </children>
       </Pane>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -43,6 +44,31 @@ public class App extends Application {
 			e.printStackTrace();
 			System.err.println("Deu ruim!"); // TODO: Criar janela de erro
 		}
+
+	}
+
+	public static void openNewStage(String path, String title, int w, int h, Controller mainController) {
+		try {
+			FXMLLoader loader = new FXMLLoader(mainController.getClass().getClassLoader().getResource(path));
+			Parent root = (Parent) loader.load();
+			Controller controller = loader.getController();
+			controller.setMainController(mainController);
+			Stage stage = new Stage();
+			Scene scene = new Scene(root, w, h);
+			stage.setScene(scene);
+			stage.show();
+			stage.setTitle(title);
+			stage.setScene(scene);
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Erro!");
+		}
+	}
+
+	public static void fecharStage(Button button) {
+		Stage stage = (Stage) button.getScene().getWindow();
+		stage.close();
 
 	}
 }

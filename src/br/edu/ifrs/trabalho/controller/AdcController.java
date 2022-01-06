@@ -2,6 +2,7 @@ package br.edu.ifrs.trabalho.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import br.edu.ifrs.trabalho.app.App;
 import br.edu.ifrs.trabalho.model.Jogo;
 import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.fxml.FXML;
@@ -9,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 //Rafael Graunke
 public class AdcController extends Controller implements Initializable {
@@ -37,12 +37,10 @@ public class AdcController extends Controller implements Initializable {
 		jogo.setCategoria(category_choice.getSelectionModel().getSelectedItem());
 		jogo.setAno(Integer.parseInt(year_field.getText()));
 		JogoRepository.adiciona(jogo);
-
-		((MainController) mainController).getJogos().add(jogo);
 	}
 
 	public void voltar() {
-		Stage stage = (Stage) back_btn.getScene().getWindow();
-		stage.close();
+		App.fecharStage(back_btn);
+		App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
 	}
 }
