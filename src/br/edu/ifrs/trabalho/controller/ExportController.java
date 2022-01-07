@@ -1,6 +1,8 @@
 package br.edu.ifrs.trabalho.controller;
+import br.edu.ifrs.trabalho.app.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -15,9 +17,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ExportController implements Initializable {
+public class ExportController extends Controller implements Initializable {
     @FXML
     RadioButton radio_complete, radio_graph, radio_table;
+
+    @FXML
+    Button back_btn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,6 +44,11 @@ public class ExportController implements Initializable {
         }else if(radio_graph.isSelected()){
             gera_grafico();
         }
+    }
+
+    public void voltar() {
+        App.fecharStage(back_btn);
+        App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
     }
 
     public static void gera_grafico()throws IOException { }

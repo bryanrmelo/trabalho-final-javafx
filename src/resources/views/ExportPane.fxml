@@ -28,7 +28,7 @@
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <Button layoutX="28.0" layoutY="135.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Voltar">
+      <Button fx:id="back_btn" onAction="#voltar" layoutX="28.0" layoutY="135.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Voltar">
          <font>
             <Font size="13.0" />
          </font>
