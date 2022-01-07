@@ -1,10 +1,16 @@
 package br.edu.ifrs.trabalho.controller;
 import br.edu.ifrs.trabalho.app.App;
+import br.edu.ifrs.trabalho.model.Jogo;
+import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 //import org.apache.poi.ss.usermodel.Cell;
@@ -12,9 +18,11 @@ import javafx.scene.control.ToggleGroup;
 //import org.apache.poi.xssf.usermodel.XSSFSheet;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class ExportController extends Controller implements Initializable {
@@ -53,51 +61,48 @@ public class ExportController extends Controller implements Initializable {
 
     public static void gera_grafico()throws IOException { }
     public static void gera_tabela()throws IOException {
-//    PUXAR TODOS OS  JOGOS PARA UM ARRAYLIST
-//        XSSFWorkbook workbook = new XSSFWorkbook();
-//        for(Jogo j : jogos) {
-//            XSSFSheet sheet = workbook.createSheet(t.getCurso() + " - " + t.getNome());
-//            Map<String, Object[]> data = new HashMap();
-//            Row row = sheet.createRow(0);
-//            Cell cell = row.createCell(0);
-//            cell.setCellValue("Nome");
-//            cell = row.createCell(1);
-//            cell.setCellValue("Nota 1");
-//            cell = row.createCell(2);
-//            cell.setCellValue("Nota 2");
-//            cell = row.createCell(3);
-//            cell.setCellValue("Nota 3");
-//            cell = row.createCell(4);
-//            cell.setCellValue("Nota Final");
-//
-//            for (Aluno a : t.getAlunos()) {
-//                data.put(a.getNome(), new Object[]{a.getNota1(), a.getNota2(), a.getNota3(), a.getNotaFinal()});
-//            }
-//            Set<String> keyset = data.keySet();
-//            int rownum = 1;
-//
-//            for (String key : keyset) {
-//                row = sheet.createRow(rownum++);
-//                Object[] objArr = data.get(key);
-//                cell = row.createCell(0);
-//
-//                cell.setCellValue(key);
-//                int cellnum = 1;
-//                for (Object obj : objArr) {
-//                    cell = row.createCell(cellnum++);
-//                    if (obj instanceof String)
-//                        cell.setCellValue((String) obj);
-//                    else if (obj instanceof Double)
-//                        cell.setCellValue((Double) obj);
-//                }
-//            }
-//        }
-//        try {
-//            FileOutputStream out = new FileOutputStream(new File("arq.xlsx"));
-//            workbook.write(out);
-//            out.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        List<Jogo> jogos = JogoRepository.buscarTodos();
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Todos os Jogos");
+        Map<String, Object[]> data = new HashMap();
+        Row row = sheet.createRow(0);
+        Cell cell = row.createCell(0);
+        cell.setCellValue("Nome");
+        cell = row.createCell(1);
+        cell.setCellValue("Desenvoledora");
+        cell = row.createCell(2);
+        cell.setCellValue("Categoria");
+        cell = row.createCell(3);
+        cell.setCellValue("Ano");
+
+        for (Jogo j : jogos) {
+            data.put(j.getNome(), new Object[]{j.getDesenvolvedor(), j.getCategoria(), j.getAno()});
+        }
+        Set<String> keyset = data.keySet();
+        int rownum = 1;
+
+        for (String key : keyset) {
+            row = sheet.createRow(rownum++);
+            Object[] objArr = data.get(key);
+            cell = row.createCell(0);
+            cell.setCellValue(key);
+            int cellnum = 1;
+            for (Object obj : objArr) {
+                cell = row.createCell(cellnum++);
+                if (obj instanceof String)
+                    cell.setCellValue((String) obj);
+                else if (obj instanceof String)
+                    cell.setCellValue((String) obj);
+                else if (obj instanceof Integer)
+                    cell.setCellValue((Integer) obj);
+            }
+        }
+        try {
+            FileOutputStream out = new FileOutputStream(new File("arq.xlsx"));
+            workbook.write(out);
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
