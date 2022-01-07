@@ -39,6 +39,7 @@ public class App extends Application {
 			stage.show();
 			stage.setTitle(title);
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
