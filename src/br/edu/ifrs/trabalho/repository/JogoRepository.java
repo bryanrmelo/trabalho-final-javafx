@@ -33,8 +33,7 @@ public class JogoRepository {
 		entityManagerFactory.close();
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<Jogo> buscarTodos() {
+	public static List<Jogo> buscarTodos() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("games");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
