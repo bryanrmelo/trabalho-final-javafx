@@ -1,5 +1,6 @@
 package br.edu.ifrs.trabalho.controller;
 
+import br.edu.ifrs.trabalho.app.App;
 import br.edu.ifrs.trabalho.model.Jogo;
 import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.collections.FXCollections;
@@ -7,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -20,6 +22,9 @@ public class GraphController extends Controller implements Initializable {
 
     @FXML
     PieChart pieChart;
+
+    @FXML
+    Button back_btn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,5 +44,9 @@ public class GraphController extends Controller implements Initializable {
             pieData.add(new PieChart.Data(entry.getKey(), (Float.valueOf(entry.getValue()) * 100) / total));
         }
         pieChart.setData(pieData);
+    }
+    public void voltar() {
+        App.fecharStage(back_btn);
+        App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
     }
 }

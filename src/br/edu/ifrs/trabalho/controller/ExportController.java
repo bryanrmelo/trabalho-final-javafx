@@ -27,7 +27,7 @@ import java.util.*;
 
 public class ExportController extends Controller implements Initializable {
     @FXML
-    RadioButton radio_complete, radio_graph, radio_table;
+    RadioButton radio_pdf, radio_graph, radio_table;
 
     @FXML
     Button back_btn;
@@ -35,17 +35,15 @@ public class ExportController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ToggleGroup group = new ToggleGroup();
-        radio_complete.setToggleGroup(group);
-        radio_complete.setSelected(true);
+        radio_pdf.setToggleGroup(group);
+        radio_pdf.setSelected(true);
         radio_graph.setToggleGroup(group);
         radio_table.setToggleGroup(group);
     }
 
     public void export()throws IOException {
-        System.out.println(radio_complete.isSelected());
-        if(radio_complete.isSelected()){
-            gera_tabela();
-            gera_grafico();
+        if(radio_pdf.isSelected()){
+
         }
         else if (radio_table.isSelected()){
             gera_tabela();

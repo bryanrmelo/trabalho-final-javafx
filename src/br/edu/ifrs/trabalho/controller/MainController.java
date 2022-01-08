@@ -42,17 +42,17 @@ public class MainController extends Controller implements Initializable {
 
 	public void showAdc() {
 		App.fecharStage(add_btn);
-		App.openNewWindow(App.ADC, "Adicionar", 600, 500, this);
+		App.openNewWindow(App.ADC, "Adicionar", 500, 400, this);
 	}
 
 	public void showExport() {
 		App.fecharStage(add_btn);
-		App.openNewWindow(App.EXPORT, "Exportar", 600, 500, this);
+		App.openNewWindow(App.EXPORT, "Exportar", 314, 178, this);
 	}
 
 	public void showStats() {
 		App.fecharStage(add_btn);
-		App.openNewWindow(App.GRAPH, "Estatísticas", 600, 500, this);
+		App.openNewWindow(App.GRAPH, "Estatísticas", 600, 525, this);
 	}
 
 	@Override
