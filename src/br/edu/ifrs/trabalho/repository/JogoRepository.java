@@ -49,4 +49,17 @@ public class JogoRepository {
 
 	}
 
+	public static void alterar(Jogo jogo) {
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("games");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+		entityManager.merge(jogo);
+		entityManager.getTransaction().commit();
+
+		entityManager.close();
+		entityManagerFactory.close();
+
+	}
+
 }

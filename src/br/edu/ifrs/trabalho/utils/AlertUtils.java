@@ -2,10 +2,6 @@ package br.edu.ifrs.trabalho.utils;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
-import java.io.File;
 
 //Bryan Melo
 

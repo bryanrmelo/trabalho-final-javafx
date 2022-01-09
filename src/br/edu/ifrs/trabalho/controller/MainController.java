@@ -8,7 +8,6 @@ import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -34,6 +33,7 @@ public class MainController extends Controller implements Initializable {
 	@FXML
 	TableColumn<Jogo, Integer> year_col;
 
+	@SuppressWarnings("static-access")
 	@FXML
 	public void removeButtonHandler(ActionEvent event) {
 		Jogo jogo = table_view.getSelectionModel().getSelectedItem();
@@ -57,7 +57,7 @@ public class MainController extends Controller implements Initializable {
 		App.openNewWindow(App.GRAPH, "Estatísticas", 600, 525, this);
 	}
 
-	//Mateus Zucco
+	// Mateus Zucco
 	public void showEdit() {
 		Jogo jogo = table_view.getSelectionModel().getSelectedItem();
 		JogoSelecionado = jogo;
@@ -65,7 +65,7 @@ public class MainController extends Controller implements Initializable {
 		App.openNewWindow(App.EDIT, "Editar", 500, 400, this);
 	}
 
-
+	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
