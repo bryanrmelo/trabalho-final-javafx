@@ -23,7 +23,7 @@ public class MainController extends Controller implements Initializable {
 	TableView<Jogo> table_view;
 
 	@FXML
-	Button add_btn, remove_btn, export_btn, stats_btn;
+	Button add_btn, remove_btn, export_btn, stats_btn, edit_btn;
 
 	@FXML
 	TableColumn<Jogo, String> name_col, dev_col, cat_col;
@@ -35,7 +35,6 @@ public class MainController extends Controller implements Initializable {
 	public void removeButtonHandler(ActionEvent event) {
 		Jogo jogo = table_view.getSelectionModel().getSelectedItem();
 		jogoRepo.remove(jogo);
-
 		table_view.getItems().setAll(FXCollections.observableArrayList(jogoRepo.buscarTodos()));
 
 	}
@@ -46,14 +45,20 @@ public class MainController extends Controller implements Initializable {
 	}
 
 	public void showExport() {
-		App.fecharStage(add_btn);
+		App.fecharStage(export_btn);
 		App.openNewWindow(App.EXPORT, "Exportar", 314, 178, this);
 	}
 
 	public void showStats() {
-		App.fecharStage(add_btn);
+		App.fecharStage(stats_btn);
 		App.openNewWindow(App.GRAPH, "Estatísticas", 600, 525, this);
 	}
+
+	public void showEdit() {
+		App.fecharStage(edit_btn);
+		App.openNewWindow(App.EDIT, "Editar", 500, 400, this);
+	}
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

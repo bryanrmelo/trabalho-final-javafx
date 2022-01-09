@@ -27,7 +27,7 @@ import java.util.*;
 
 public class ExportController extends Controller implements Initializable {
     @FXML
-    RadioButton radio_pdf, radio_graph, radio_table;
+    RadioButton radio_pdf, radio_complete, radio_table;
 
     @FXML
     Button back_btn;
@@ -36,20 +36,26 @@ public class ExportController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ToggleGroup group = new ToggleGroup();
         radio_pdf.setToggleGroup(group);
-        radio_pdf.setSelected(true);
-        radio_graph.setToggleGroup(group);
+        radio_complete.setSelected(true);
+        radio_complete.setToggleGroup(group);
         radio_table.setToggleGroup(group);
     }
 
     public void export()throws IOException {
         if(radio_pdf.isSelected()){
-
+            gera_pdf();
+            System.out.println("\"Jogos.pdf\" exportado com sucesso");
         }
         else if (radio_table.isSelected()){
             gera_tabela();
-        }else if(radio_graph.isSelected()){
-            gera_grafico();
+            System.out.println("\"Jogos.xlsx\" exportado com sucesso");
+        }else if(radio_complete.isSelected()){
+            gera_pdf();
+            gera_tabela();
+            System.out.println("\"Jogos.xlsx\" & \"Jogos.pdf\" exportados com sucesso");
         }
+        App.fecharStage(back_btn);
+        App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
     }
 
     public void voltar() {
@@ -57,7 +63,9 @@ public class ExportController extends Controller implements Initializable {
         App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
     }
 
-    public static void gera_grafico()throws IOException { }
+    public static void gera_pdf()throws IOException { }
+
+
     public static void gera_tabela()throws IOException {
         List<Jogo> jogos = JogoRepository.buscarTodos();
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -96,7 +104,7 @@ public class ExportController extends Controller implements Initializable {
             }
         }
         try {
-            FileOutputStream out = new FileOutputStream(new File("arq.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("Jogos.xlsx"));
             workbook.write(out);
             out.close();
         } catch (Exception e) {

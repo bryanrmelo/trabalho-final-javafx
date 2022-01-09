@@ -14,6 +14,7 @@ public class App extends Application {
 	public static final String LOGIN = "resources/views/LoginPane.fxml";
 	public static final String MAIN = "resources/views/MainPane.fxml";
 	public static final String EXPORT = "resources/views/ExportPane.fxml";
+	public static final String EDIT = "resources/views/EditPane.fxml";
 	public static final String ADC = "resources/views/AdcPane.fxml";
 	public static final String GRAPH = "resources/views/GraphPane.fxml";
 

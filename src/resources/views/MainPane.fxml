@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #eeeeee;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifrs.trabalho.controller.MainController">
    <children>
       <Pane layoutX="51.0" layoutY="90.0" prefHeight="364.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
          <children>
@@ -32,17 +32,22 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="export_btn" layoutX="373.0" layoutY="495.0" mnemonicParsing="false" onAction="#showExport" prefHeight="35.0" prefWidth="94.0" text="Exportar ">
+      <Button fx:id="export_btn" layoutX="404.0" layoutY="495.0" mnemonicParsing="false" onAction="#showExport" prefHeight="35.0" prefWidth="94.0" text="Exportar ">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="remove_btn" layoutX="210.0" layoutY="495.0" mnemonicParsing="false" onAction="#removeButtonHandler" prefHeight="32.0" prefWidth="94.0" text="Remover">
+      <Button fx:id="remove_btn" layoutX="286.0" layoutY="495.0" mnemonicParsing="false" onAction="#removeButtonHandler" prefHeight="32.0" prefWidth="94.0" text="Remover">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
       <Button fx:id="stats_btn" layoutX="517.0" layoutY="495.0" mnemonicParsing="false" onAction="#showStats" prefHeight="35.0" prefWidth="134.0" text="Ver Estatísticas ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="edit_btn" layoutX="168.0" layoutY="495.0" mnemonicParsing="false" onAction="#showEdit" prefHeight="32.0" prefWidth="94.0" text="Editar">
          <font>
             <Font size="16.0" />
          </font>

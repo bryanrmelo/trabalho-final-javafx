@@ -37,6 +37,8 @@ public class AdcController extends Controller implements Initializable {
 		jogo.setCategoria(category_choice.getSelectionModel().getSelectedItem());
 		jogo.setAno(Integer.parseInt(year_field.getText()));
 		JogoRepository.adiciona(jogo);
+		App.fecharStage(back_btn);
+		App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
 	}
 
 	public void voltar() {

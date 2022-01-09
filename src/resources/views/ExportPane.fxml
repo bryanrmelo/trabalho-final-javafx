@@ -18,17 +18,17 @@
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="radio_graph" layoutX="209.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="Imagem">
+      <RadioButton fx:id="radio_complete" layoutX="209.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="Ambos">
          <font>
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="radio_complete" layoutX="32.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="PDF">
+      <RadioButton fx:id="radio_pdf" layoutX="32.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="82.0" text="PDF">
          <font>
             <Font size="13.0" />
          </font>
       </RadioButton>
-      <Button fx:id="back_btn" onAction="#voltar" layoutX="28.0" layoutY="135.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Voltar">
+      <Button fx:id="back_btn" layoutX="28.0" layoutY="135.0" mnemonicParsing="false" onAction="#voltar" prefHeight="17.0" prefWidth="75.0" text="Voltar">
          <font>
             <Font size="13.0" />
          </font>
