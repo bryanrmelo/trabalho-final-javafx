@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+//Rafael Graunke
 public class GraphController extends Controller implements Initializable {
 
     private JogoRepository jogoRepo = new JogoRepository();
@@ -45,6 +47,7 @@ public class GraphController extends Controller implements Initializable {
         }
         pieChart.setData(pieData);
     }
+
     public void voltar() {
         App.fecharStage(back_btn);
         App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());

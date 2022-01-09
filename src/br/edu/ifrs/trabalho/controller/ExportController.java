@@ -2,8 +2,15 @@ package br.edu.ifrs.trabalho.controller;
 import br.edu.ifrs.trabalho.app.App;
 import br.edu.ifrs.trabalho.model.Jogo;
 import br.edu.ifrs.trabalho.repository.JogoRepository;
+import br.edu.ifrs.trabalho.utils.AlertUtils;
+import br.edu.ifrs.trabalho.utils.FileUtils;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -18,11 +25,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //import org.apache.poi.xssf.usermodel.XSSFSheet;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 
 public class ExportController extends Controller implements Initializable {
@@ -64,7 +71,38 @@ public class ExportController extends Controller implements Initializable {
         App.openNewWindow(App.MAIN, "Main", 700, 600, new Controller());
     }
 
-    public static void gera_pdf()throws IOException { }
+    //Rafael Graunke
+    public static void gera_pdf()throws IOException {
+        List<Jogo> jogos = JogoRepository.buscarTodos();
+        Document doc = new Document();
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(FileUtils.chooseSaveFile(FileUtils.PDF)));
+            doc.open();
+
+            Font font = new Font(Font.FontFamily.HELVETICA, 45);
+            Paragraph title = new Paragraph("Games DB", font);
+            title.setAlignment(Element.ALIGN_CENTER);
+            title.setSpacingAfter(20f);
+
+            PdfPTable table = new PdfPTable(4);
+            table.addCell("Nome");
+            table.addCell("Desenvolvedor");
+            table.addCell("Categoria");
+            table.addCell("Ano");
+            for (Jogo j : jogos) {
+                table.addCell(j.getNome());
+                table.addCell(j.getDesenvolvedor());
+                table.addCell(j.getCategoria());
+                table.addCell(String.valueOf(j.getAno()));
+            }
+
+            doc.add(title);
+            doc.add(table);
+            doc.close();
+        } catch (DocumentException  e) {
+            AlertUtils.mostrarAlert("Não foi possível salvar o arquivo no caminho especificado.", Alert.AlertType.ERROR);
+        }
+    }
 
     //Mateus Zucco
     public static void gera_tabela()throws IOException {
@@ -105,7 +143,7 @@ public class ExportController extends Controller implements Initializable {
             }
         }
         try {
-            FileOutputStream out = new FileOutputStream(new File("Jogos.xlsx"));
+            FileOutputStream out = new FileOutputStream(FileUtils.chooseSaveFile(FileUtils.EXCEL)); //Rafael Graunke
             workbook.write(out);
             out.close();
         } catch (Exception e) {

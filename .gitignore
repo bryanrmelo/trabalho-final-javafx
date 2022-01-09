@@ -3,3 +3,5 @@ target/
 bin/
 .project
 build.fxbuild
+.idea/
+.xlsx

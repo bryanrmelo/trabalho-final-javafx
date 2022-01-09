@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+//Rafael Graunke
 public class App extends Application {
 
 	public static final String LOGIN = "resources/views/LoginPane.fxml";
@@ -27,6 +28,7 @@ public class App extends Application {
 		openNewWindow(LOGIN, "Login", 700, 600, new Controller());
 	}
 
+	//Rafael Graunke
 	public static void openNewWindow(String path, String title, int w, int h, Controller mainController) {
 		Stage stage = new Stage();
 		Parent root;
@@ -47,25 +49,6 @@ public class App extends Application {
 			System.err.println("Deu ruim!"); // TODO: Criar janela de erro
 		}
 
-	}
-
-	public static void openNewStage(String path, String title, int w, int h, Controller mainController) {
-		try {
-			FXMLLoader loader = new FXMLLoader(mainController.getClass().getClassLoader().getResource(path));
-			Parent root = (Parent) loader.load();
-			Controller controller = loader.getController();
-			controller.setMainController(mainController);
-			Stage stage = new Stage();
-			Scene scene = new Scene(root, w, h);
-			stage.setScene(scene);
-			stage.show();
-			stage.setTitle(title);
-			stage.setScene(scene);
-			stage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Erro!");
-		}
 	}
 
 	public static void fecharStage(Button button) {

@@ -28,10 +28,8 @@ public class EditController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        category_choice.getItems().add("RPG");
-        category_choice.getItems().add("FPS");
-        category_choice.getItems().add("Terror");
-        category_choice.getItems().add("Puzzle");
+        category_choice.getItems().addAll("Sandbox", "RTS", "Tiro", "MOBA", "RPG", "Simulador", "Esporte", "Puzzle",
+                "Party", "Acao", "Aventura", "Luta", "Sobrevivencia", "Terror", "Plataforma");
         name_field.setText(JogoSelecionado.getNome());
         developer_field.setText(JogoSelecionado.getDesenvolvedor());
         year_field.setText(String.valueOf(JogoSelecionado.getAno()));
