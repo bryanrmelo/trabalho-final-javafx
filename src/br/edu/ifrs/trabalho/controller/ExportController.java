@@ -32,6 +32,7 @@ public class ExportController extends Controller implements Initializable {
     @FXML
     Button back_btn;
 
+    //Mateus Zucco
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ToggleGroup group = new ToggleGroup();
@@ -40,7 +41,7 @@ public class ExportController extends Controller implements Initializable {
         radio_complete.setToggleGroup(group);
         radio_table.setToggleGroup(group);
     }
-
+    //Mateus Zucco
     public void export()throws IOException {
         if(radio_pdf.isSelected()){
             gera_pdf();
@@ -65,7 +66,7 @@ public class ExportController extends Controller implements Initializable {
 
     public static void gera_pdf()throws IOException { }
 
-
+    //Mateus Zucco
     public static void gera_tabela()throws IOException {
         List<Jogo> jogos = JogoRepository.buscarTodos();
         XSSFWorkbook workbook = new XSSFWorkbook();

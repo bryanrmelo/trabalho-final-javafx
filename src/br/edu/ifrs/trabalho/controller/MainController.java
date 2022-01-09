@@ -8,6 +8,7 @@ import br.edu.ifrs.trabalho.repository.JogoRepository;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -18,6 +19,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class MainController extends Controller implements Initializable {
 
 	private JogoRepository jogoRepo = new JogoRepository();
+
+	public static Jogo JogoSelecionado = null;
 
 	@FXML
 	TableView<Jogo> table_view;
@@ -54,7 +57,10 @@ public class MainController extends Controller implements Initializable {
 		App.openNewWindow(App.GRAPH, "Estatísticas", 600, 525, this);
 	}
 
+	//Mateus Zucco
 	public void showEdit() {
+		Jogo jogo = table_view.getSelectionModel().getSelectedItem();
+		JogoSelecionado = jogo;
 		App.fecharStage(edit_btn);
 		App.openNewWindow(App.EDIT, "Editar", 500, 400, this);
 	}
